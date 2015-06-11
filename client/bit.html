@@ -1,9 +1,33 @@
 <template name="bits">
 <ul class="bits">
+	{{> newbit type=type}}
 	{{#each bits}}
 	{{> bit}}
 	{{/each}}
 </ul>
+</template>
+
+<template name="newbit">
+<li class="newbit">
+<form id="new{{type}}">
+	<label class="title">Title: <input name="title"></label>
+	<input type="hidden" name="type" value="{{type}}">
+	{{> Template.dynamic template=newtype }}
+	<button>New {{displaytype}}</button>
+</form>
+</li>
+</template>
+
+<template name="newtext">
+<textarea name="text"></textarea>
+</template>
+
+<template name="newimage">
+<label class="href">URL: <input name="href"></label>
+</template>
+
+<template name="newlink">
+<label class="href">URL: <input name="href"></label>
 </template>
 
 <template name="bit">

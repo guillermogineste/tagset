@@ -48,4 +48,21 @@ header .tags {
 }
 .bits {
 	display: table-cell;
+	list-style: none;
+	padding: 1ex;
 }
+
+.newbit {
+	padding: 1ex;
+	margin: 1ex 0;
+	width: 30ex;
+	text-align: right;
+}
+.newbit textarea {
+	width: 30ex;
+	min-height: 4em;
+}
+label {
+	white-space: nowrap;
+}
+
