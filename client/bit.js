@@ -35,7 +35,10 @@ Template.bit.helpers({
 		return this.tags.reduce(function(a, b){
 			return a + ' t' + b;
 		}, 'bit');
-	}
+	},
+	showtype: function() {
+		return "show" + this.type;
+	},
 });
 Template.bit.events({
 	"click .delete": function(event) {

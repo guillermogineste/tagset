@@ -31,7 +31,23 @@
 </template>
 
 <template name="bit">
-<li class={{tagclass}}>{{title}}{{> tags list=tags}}</li>
+<li class={{tagclass}}>
+	{{> Template.dynamic template=showtype}}
+	{{> tags list=tags}}
+</li>
+</template>
+
+<template name="showtext">
+<h3>{{title}}</h3>
+<p>{{text}}</p>
+</template>
+
+<template name="showimage">
+<img alt="{{title}}" title="{{title}}" src="{{href}}">
+</template>
+
+<template name="showlink">
+<a href="{{href}}">{{title}}</a>
 </template>
 
 <template name="bitfilter">
