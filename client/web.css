@@ -39,11 +39,15 @@ header .tags {
 
 .bit {
 	display: none;
+	padding: 1ex 0;
+}
+.bit img {
+	max-width: 100%;
 }
 #bitcontainer {
 	display: table;
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	padding: 4em 0;
 }
 .bits {
