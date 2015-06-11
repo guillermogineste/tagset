@@ -1,0 +1,21 @@
+<head>
+	<title>Tag Set</title>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<div id="admin">
+				{{> loginButtons}}
+			</div><h1>Tag Set</h1>{{> tags}}
+		</header>
+		{{#if currentUser}}
+		{{/if}}
+		<ul class="bits">
+			{{#each bits}}
+			{{> bit}}
+			{{/each}}
+		</ul>
+	</div>
+	{{> bitfilter}}
+</body>

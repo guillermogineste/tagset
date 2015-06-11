@@ -4,7 +4,7 @@ header {
 	display: table;
 	white-space: nowrap;
 }
-header * {
+header > * {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
@@ -19,16 +19,24 @@ header * {
 header h1 {
 	width: 20%;
 }
-#tags {
+header .tags {
 	width: 40%;
 	padding: 0;
 	list-style: none;
 }
 .tag {
 	display: inline-block;
-	padding: 1ex;
+	padding: 0.5ex;
+	margin: 0.5ex;
+	border: 1px solid white;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
-.tagon {
+.tag[data-sel] {
 	border: 1px solid black;
 }
 
+.bit {
+	display: none;
+}

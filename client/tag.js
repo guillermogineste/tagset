@@ -1,11 +1,5 @@
 Meteor.subscribe("tags");
 
-Template.body.helpers({
-	tags: function() {
-		return Tags.find();
-	}
-});
-
 Template.body.events({
 	"submit .new-tag": function(event) {
 		Meteor.call("addTag",
@@ -18,13 +12,35 @@ Template.body.events({
 });
 
 Template.tags.helpers({
+	tags: function() {
+		return Tags.find();
+	}
 });
+
+Template.tag.helpers({
+});
+
+(function(){
+	var tags = Tags.find();
+	function updateFilter(){
+		var rule = document.getElementById("bitfilter").sheet.cssRules[0];
+		rule.selectorText = tags.fetch().filter(function(tag){
+			return tag.selected;
+		}).reduce(function(a, tag){
+			return a + '.t' + tag._id;
+		}, '.bit');
+	}
+	tags.observeChanges({
+		changed: updateFilter,
+		deleted: updateFilter,
+	});
+})()
+
 Template.tag.events({
+	"click": function(event) {
+		Meteor.call("selectTag", this._id, !this.selected);
+	},
 	"click .delete": function(event) {
 		Meteor.call("removeTag", this._id);
 	},
-});
-
-Accounts.ui.config({
-	passwordSignupFields: "USERNAME_ONLY"
 });
