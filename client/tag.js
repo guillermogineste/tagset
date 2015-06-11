@@ -41,6 +41,19 @@ Template.tag.helpers({
 })()
 
 Template.tag.events({
+	"dragstart": function(event) {
+		var dt = event.originalEvent.dataTransfer;
+		dt.setData('text/tag', this._id);
+		dt.setData('text/plain', this.title);
+	},
+	"dragend": function(event) {
+		var dt = event.originalEvent.dataTransfer;
+		var node = event.target.parentNode.parentNode;
+		console.log(node);
+		if(dt.dropEffect == "move" && node.classList[0] === "bit"){
+			Meteor.call("delTagFromBit", dt.getData('text/tag'), node.id); 
+		}
+	},
 	"click": function(event) {
 		Meteor.call("selectTag", this._id, !this.selected);
 	},

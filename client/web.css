@@ -28,7 +28,8 @@ header .tags {
 	display: inline-block;
 	padding: 0.5ex;
 	margin: 0.5ex;
-	border: 1px solid white;
+	border: 1px solid transparent;
+	background: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;

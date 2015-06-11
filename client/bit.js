@@ -44,4 +44,25 @@ Template.bit.events({
 	"click .delete": function(event) {
 		Meteor.call("removeBit", this._id);
 	},
+	"dragover, dragenter": function(event) {
+		var dt = event.originalEvent.dataTransfer;
+		if(dt.types.indexOf("text/tag") >= 0){
+			event.preventDefault();
+		}
+	},
+	"drop": function(event) {
+		var dt = event.originalEvent.dataTransfer;
+		var bitid = this._id;
+		var funcs = {
+			"text/tag": function(tag){
+				Meteor.call("addTagToBit", tag, bitid);
+			},
+		};
+		for(var i = 0; i < dt.types.length; i++){
+			if(funcs[dt.types[i]] !== undefined){
+				funcs[dt.types[i]](dt.getData(dt.types[i]), event);
+				return event.preventDefault();
+			}
+		}
+	}
 });
