@@ -9,13 +9,11 @@
 				{{> loginButtons}}
 			</div><h1>Tag Set</h1>{{> tags}}
 		</header>
-		{{#if currentUser}}
-		{{/if}}
-		<ul class="bits">
-			{{#each bits}}
-			{{> bit}}
-			{{/each}}
-		</ul>
+		<div id="bitcontainer">
+			{{> bits type="text"}}
+			{{> bits type="image"}}
+			{{> bits type="link"}}
+		</div>
 	</div>
 	{{> bitfilter}}
 </body>

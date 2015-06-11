@@ -12,8 +12,12 @@ Template.body.events({
 });
 
 Template.tags.helpers({
-	tags: function() {
-		return Tags.find();
+	tags: function(list) {
+		var spec = {};
+		if(list != null){
+			spec._id = {$in: list};
+		}
+		return Tags.find(spec);
 	}
 });
 

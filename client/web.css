@@ -40,3 +40,12 @@ header .tags {
 .bit {
 	display: none;
 }
+#bitcontainer {
+	display: table;
+	width: 100%;
+	text-align: center;
+	padding: 4em 0;
+}
+.bits {
+	display: table-cell;
+}

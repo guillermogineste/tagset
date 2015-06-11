@@ -1,8 +1,8 @@
 Meteor.subscribe("bits");
 
-Template.body.helpers({
+Template.bits.helpers({
 	bits: function() {
-		return Bits.find();
+		return Bits.find({type: this.type});
 	}
 });
 

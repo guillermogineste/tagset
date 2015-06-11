@@ -1,6 +1,15 @@
-<template name="bit">
-<li class={{tagclass}}>{{title}}{{> tags}}</li>
+<template name="bits">
+<ul class="bits">
+	{{#each bits}}
+	{{> bit}}
+	{{/each}}
+</ul>
 </template>
+
+<template name="bit">
+<li class={{tagclass}}>{{title}}{{> tags list=tags}}</li>
+</template>
+
 <template name="bitfilter">
 <style id="bitfilter" type="text/css">
 .bit {
