@@ -7,7 +7,9 @@
 		<header>
 			<div id="admin">
 				{{> loginButtons}}
+				{{#if currentUser}}
 				<h2 class="drop tagTarget">Delete</h2>
+				{{/if}}
 			</div><h1>Tag Set</h1>{{> tags new=true}}
 		</header>
 		<div id="bitcontainer">

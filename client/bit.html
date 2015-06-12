@@ -8,6 +8,7 @@
 </template>
 
 <template name="newbit">
+{{#if currentUser}}
 <li class="newbit">
 <form id="new{{type}}">
 	<label class="title">Title: <input name="title"></label>
@@ -16,6 +17,7 @@
 	<button>New {{displaytype}}</button>
 </form>
 </li>
+{{/if}}
 </template>
 
 <template name="newtext">

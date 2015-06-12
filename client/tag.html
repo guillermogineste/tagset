@@ -1,9 +1,11 @@
 <template name="newtag">
+{{#if currentUser}}
 <form class="newtag">
 	<label class="title">Title: <input name="title" placeholder="tag"></label>
 	<button type="button" class="color" name="color">&nbsp;</button>
 	<button type="submit">Add</button>
 </form>
+{{/if}}
 </template>
 
 <template name="tags">

@@ -5,7 +5,6 @@ html {
 header {
 	width: 100%;
 	display: table;
-	white-space: nowrap;
 }
 header > * {
 	display: table-cell;
@@ -19,10 +18,10 @@ header > * {
 #login-buttons {
 	padding: 1ex;
 }
-header h1 {
+header > h1 {
 	width: 20%;
 }
-header .tags {
+header > .tags {
 	width: 40%;
 	padding: 0;
 	list-style: none;
