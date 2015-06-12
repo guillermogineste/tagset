@@ -28,6 +28,7 @@
 
 <template name="newlink">
 <label class="href">URL: <input name="href"></label>
+<textarea name="description"></textarea>
 </template>
 
 <template name="bit">
@@ -47,7 +48,8 @@
 </template>
 
 <template name="showlink">
-<a href="{{href}}">{{title}}</a>
+<h3><a href="{{href}}">{{title}}</a></h3>
+<p>{{description}}</p>
 </template>
 
 <template name="bitfilter">

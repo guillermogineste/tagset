@@ -75,3 +75,13 @@ Template.bit.events({
 		}
 	}
 });
+
+Template.newlink.events({
+	'change input[name="href"]': function(event) {
+		var link = event.target.parentNode.parentNode;
+		Meteor.call("getURLInfo", event.target.value, function(err, res){
+			if(!link.title.value) link.title.value = res.title;
+			link.description.value = res.description;
+		});
+	},
+});
