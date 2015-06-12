@@ -1,4 +1,7 @@
 /* CSS declarations go here */
+html {
+	overflow-y: scroll;
+}
 header {
 	width: 100%;
 	display: table;
@@ -23,6 +26,10 @@ header .tags {
 	width: 40%;
 	padding: 0;
 	list-style: none;
+}
+.tags {
+	white-space: normal;
+	padding: 0;
 }
 .tag {
 	display: inline-block;
@@ -55,6 +62,7 @@ header .tags {
 	display: table-cell;
 	list-style: none;
 	padding: 1ex;
+	width: 33%;
 }
 
 .newbit {

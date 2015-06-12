@@ -23,6 +23,10 @@ Template.newtag.events({
 		return false;
 	},
 });
+Template.newtag.rendered = function(){
+	var tag = this.firstNode.color;
+	tag.style.background = tag.value = "rgb(0, 0, 0)";
+};
 
 Template.tags.helpers({
 	tags: function(list) {
