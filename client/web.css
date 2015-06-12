@@ -79,3 +79,8 @@ label {
 	white-space: nowrap;
 }
 
+.delete {
+	float: right;
+	margin: 1em;
+	color: red;
+}
