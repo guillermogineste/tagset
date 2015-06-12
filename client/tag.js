@@ -62,12 +62,23 @@ Template.tag.events({
 		var dt = event.originalEvent.dataTransfer;
 		dt.setData('text/tag', this._id);
 		dt.setData('text/plain', this.title);
+		var highlight = document.getElementsByClassName('tagTarget');
+		for(var i=0;i<highlight.length;i++){
+			highlight[i].classList.add('target');
+		}
 	},
 	"dragend": function(event) {
 		var dt = event.originalEvent.dataTransfer;
 		var node = event.target.parentNode.parentNode;
-		if(dt.dropEffect == "move" && node.classList[0] === "bit"){
-			Meteor.call("delTagFromBit", event.target.id, node.id); 
+		if(dt.dropEffect == "move"){
+			if(node.tagName === "HEADER")
+				Meteor.call("delTag", event.target.id);
+			if(node.classList[0] === "bit")
+				Meteor.call("delTagFromBit", event.target.id, node.id); 
+		}
+		var highlight = document.getElementsByClassName('tagTarget');
+		for(var i=0;i<highlight.length;i++){
+			highlight[i].classList.remove('target');
 		}
 	},
 	"click": function(event) {

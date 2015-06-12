@@ -84,3 +84,7 @@ label {
 	margin: 1em;
 	color: red;
 }
+
+.target {
+	background: red;
+}

@@ -55,8 +55,9 @@ Template.bit.events({
 	},
 	"dragover, dragenter": function(event) {
 		var dt = event.originalEvent.dataTransfer;
+		dt.dropEffect = "copy";
 		if(dt.types.indexOf("text/tag") >= 0){
-			event.preventDefault();
+			event.preventDefault(event.originalEvent);
 		}
 	},
 	"drop": function(event) {
