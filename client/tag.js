@@ -63,7 +63,7 @@ Template.tag.events({
 		var dt = event.originalEvent.dataTransfer;
 		var node = event.target.parentNode.parentNode;
 		if(dt.dropEffect == "move" && node.classList[0] === "bit"){
-			Meteor.call("delTagFromBit", dt.getData('text/tag'), node.id); 
+			Meteor.call("delTagFromBit", event.target.id, node.id); 
 		}
 	},
 	"click": function(event) {

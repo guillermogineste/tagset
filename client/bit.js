@@ -18,7 +18,7 @@ Template.newbit.events({
 			ele[i].value = "";
 		}
 		delete(obj[""]);
-		obj.tags = []; /* FIXME, all currently selected tags */
+		obj.tags = {}; /* FIXME, all currently selected tags */
 		Meteor.call("addBit", obj);
 		return false;
 	},
@@ -32,9 +32,18 @@ Template.bits.helpers({
 
 Template.bit.helpers({
 	tagclass: function() {
-		return this.tags.reduce(function(a, b){
-			return a + ' t' + b;
-		}, 'bit');
+		var classes = "bit";
+		for(t in this.tags){
+			classes += ' t' + t;
+		}
+		return classes;
+	},
+	taglist: function() {
+		var list = [];
+		for(a in this.tags){
+			list.push(a);
+		}
+		return list;
 	},
 	showtype: function() {
 		return "show" + this.type;
