@@ -74,7 +74,28 @@ Template.bit.events({
 				return event.preventDefault();
 			}
 		}
-	}
+	},
+	"dragstart": function(event) {
+		if(event.target.classList[0] != 'bit') return true;
+		var dt = event.originalEvent.dataTransfer;
+		dt.setData('text/bit', this._id);
+		dt.setData('text/plain', this.title);
+		var highlight = document.getElementsByClassName('tagTarget');
+		for(var i=0;i<highlight.length;i++){
+			highlight[i].classList.add('target');
+		}
+	},
+	"dragend": function(event) {
+		var dt = event.originalEvent.dataTransfer;
+		var node = event.target.parentNode.parentNode;
+		if(dt.dropEffect == "move"){
+			Meteor.call("removeBit", event.target.id);
+		}
+		var highlight = document.getElementsByClassName('tagTarget');
+		for(var i=0;i<highlight.length;i++){
+			highlight[i].classList.remove('target');
+		}
+	},
 });
 
 Template.newlink.events({
