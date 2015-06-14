@@ -1,49 +1,50 @@
 <template name="bits">
-<ul class="bits">
+<div class="col col_{{type}}">
 	{{> newbit type=type}}
-	{{#each bits}}
-	{{> bit}}
-	{{/each}}
-</ul>
+	<div class="content">
+		{{#each bits}}
+		{{> bit}}
+		{{/each}}
+	</div>
+</div>
 </template>
 
 <template name="newbit">
 {{#if currentUser}}
-<li class="newbit">
-<form id="new{{type}}">
-	<label class="title">Title: <input name="title"></label>
-	<input type="hidden" name="type" value="{{type}}">
-	{{> Template.dynamic template=newtype }}
-	<button>New {{displaytype}}</button>
-</form>
-</li>
+<div class="add_form">
+	<h2>{{displaytype}}s</h2>
+	<form id="new{{type}}" class="{{type}}_form">
+		<input type="hidden" name="type" value="{{type}}">
+		{{> Template.dynamic template=newtype }}
+		<input type="submit" value="New {{displaytype}}">
+	</form>
+</div>
 {{/if}}
 </template>
 
 <template name="newtext">
-<textarea name="text"></textarea>
+<textarea name="text" cols="30" rows="10"></textarea>
+<input type="reset" value="Clear">
 </template>
 
 <template name="newimage">
-<label class="href">URL: <input name="href"></label>
+<input type="text" name="href" placeholder="Image URL">
 </template>
 
 <template name="newlink">
-<label class="href">URL: <input name="href"></label>
-<textarea name="description"></textarea>
+<input type="text" name="href" placeholder="Paste the URL of your link here">
 </template>
 
 <template name="bit">
-<li id="{{_id}}" class="{{tagclass}}" draggable="true">
-	<!--<button class="delete">X</button>-->
+<li id="{{_id}}" class="single_item {{type}}_item" draggable="true">
+	<button class="delete">×</button>
 	{{> Template.dynamic template=showtype}}
 	{{> tags list=taglist}}
 </li>
 </template>
 
 <template name="showtext">
-<h3>{{title}}</h3>
-<pre>{{text}}</pre>
+{{text}}
 </template>
 
 <template name="showimage">
