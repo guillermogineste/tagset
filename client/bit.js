@@ -104,7 +104,6 @@ Template.newlink.events({
 	/* FIXME race! */
 	'input input[name="href"]': function(event) {
 		var link = event.target.parentNode;
-		console.log(link);
 		Meteor.call("getURLInfo", event.target.value, function(err, res){
 			link.title.value = res.title;
 			link.description.value = res.description;
