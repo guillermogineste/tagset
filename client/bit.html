@@ -16,7 +16,7 @@
 	<form id="new{{type}}" class="{{type}}_form">
 		<input type="hidden" name="type" value="{{type}}">
 		{{> Template.dynamic template=newtype }}
-		<input type="submit" value="New {{displaytype}}">
+		<button type="submit">New {{displaytype}}</button>
 	</form>
 </div>
 {{/if}}
@@ -32,7 +32,9 @@
 </template>
 
 <template name="newlink">
+<input type="hidden" name="title">
 <input type="text" name="href" placeholder="Paste the URL of your link here">
+<input type="hidden" name="description">
 </template>
 
 <template name="bit">

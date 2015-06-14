@@ -15,7 +15,9 @@ Template.newbit.events({
 		var ele = event.target.elements;
 		for(var i=0; i<ele.length; i++){
 			obj[ele[i].name] = ele[i].value;
-			ele[i].value = "";
+			if(ele[i].name != 'type'){
+				ele[i].value = "";
+			}
 		}
 		delete(obj[""]);
 		obj.tags = {}; /* FIXME, all currently selected tags */
@@ -50,7 +52,7 @@ Template.bit.helpers({
 	},
 });
 Template.bit.events({
-	"click >.delete": function(event) {
+	"click .delete": function(event) {
 		Meteor.call("removeBit", this._id);
 	},
 	"dragover, dragenter": function(event) {
@@ -99,10 +101,12 @@ Template.bit.events({
 });
 
 Template.newlink.events({
-	'change input[name="href"]': function(event) {
-		var link = event.target.parentNode.parentNode;
+	/* FIXME race! */
+	'input input[name="href"]': function(event) {
+		var link = event.target.parentNode;
+		console.log(link);
 		Meteor.call("getURLInfo", event.target.value, function(err, res){
-			if(!link.title.value) link.title.value = res.title;
+			link.title.value = res.title;
 			link.description.value = res.description;
 		});
 	},

@@ -172,7 +172,7 @@ header {
         border-bottom: 1px solid #E0E0E0;
         margin-bottom: 10px;
     }
-    .add_form input[type='submit'] {
+    .add_form button[type='submit'] {
         background: #AED581;
         color: #33691E;
 
