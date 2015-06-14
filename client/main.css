@@ -200,7 +200,7 @@ header {
 
         float: right;
     }
-    .add_form input[type='reset'] {
+    .add_form button[type='reset'] {
         background: #EF9A9A;
         color: #B71C1C;
 
