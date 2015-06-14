@@ -81,10 +81,16 @@ Template.tag.events({
 			highlight[i].classList.remove('target');
 		}
 	},
-	"click": function(event) {
+	"click .tag": function(event) {
 		Meteor.call("selectTag", this._id, !this.selected);
+		return false;
 	},
 	"click .delete": function(event) {
-		Meteor.call("removeTag", this._id);
+		var node = event.target.parentNode.parentNode.parentNode;
+		if(node.classList[0] === "tags_list_filter")
+			Meteor.call("delTag", this._id);
+		if(node.classList[0] === "single_item")
+			Meteor.call("delTagFromBit", this._id, node.id); 
+		return false;
 	},
 });

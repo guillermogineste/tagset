@@ -36,7 +36,7 @@
 </template>
 
 <template name="bit">
-<li id="{{_id}}" class="single_item {{type}}_item" draggable="true">
+<li id="{{_id}}" class="single_item {{type}}_item {{tagclass}}" draggable="true">
 	<button class="delete">×</button>
 	{{> Template.dynamic template=showtype}}
 	{{> tags list=taglist}}

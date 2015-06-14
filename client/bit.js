@@ -50,7 +50,7 @@ Template.bit.helpers({
 	},
 });
 Template.bit.events({
-	"click .delete": function(event) {
+	"click >.delete": function(event) {
 		Meteor.call("removeBit", this._id);
 	},
 	"dragover, dragenter": function(event) {
