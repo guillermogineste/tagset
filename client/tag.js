@@ -17,8 +17,8 @@ Template.newtag.events({
 			colors.parentNode.removeChild(colors);
 		});
 		colors.style.position = "absolute";
-		document.body.appendChild(colors);
-		colors.style.top = (target.offsetTop + target.offsetHeight ) + "px";
+		event.target.parentNode.appendChild(colors);
+		colors.style.top = (target.offsetTop + target.offsetHeight/2 - colors.offsetHeight/2 ) + "px";
 		colors.style.left = (target.offsetLeft + target.offsetWidth/2 - colors.offsetWidth/2) + "px";
 		return false;
 	},
