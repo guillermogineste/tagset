@@ -424,3 +424,8 @@ img {
 .bit {
 	display: none;
 }
+
+.accounts-dialog {
+	left: unset!important;
+	right: 1ex;
+}
