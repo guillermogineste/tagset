@@ -28,7 +28,7 @@ Template.newbit.events({
 
 Template.bits.helpers({
 	bits: function() {
-		return Bits.find({type: this.type});
+		return Bits.find({type: this.type}, {sort: {created: -1}});
 	}
 });
 
