@@ -429,3 +429,8 @@ img {
 	left: unset!important;
 	right: 1ex;
 }
+
+p.plain {
+	white-space: pre-wrap;
+}
+
