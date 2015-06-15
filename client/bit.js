@@ -99,14 +99,3 @@ Template.bit.events({
 		}
 	},
 });
-
-Template.newlink.events({
-	/* FIXME race! */
-	'input input[name="href"]': function(event) {
-		var link = event.target.parentNode;
-		Meteor.call("getURLInfo", event.target.value, function(err, res){
-			link.title.value = res.title;
-			link.description.value = res.description;
-		});
-	},
-});
