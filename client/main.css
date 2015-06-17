@@ -420,6 +420,9 @@ img {
     .tag[data-sel] {
         border: 1px solid black;
     }
+    .tag {
+        display: inline-block;
+    }
 
 .bit {
 	display: none;
