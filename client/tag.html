@@ -1,24 +1,41 @@
+<!-- New tag form -->
+
 <template name="newtag">
-<form class="newtag">
-	<input name="title" placeholder="New Tag Name">
-	<button type="button" class="color" name="color">&nbsp;</button>
-	<button type="submit">Add</button>
+
+
+<form class="new-tag-form">
+    <input type="text" name="title" placeholder="New Tag Name">
+    <button type="button" class="color" name="color">&nbsp;</button>
+    <input class="btn btn--positive" type="submit" value="Add">
 </form>
 </template>
 
+<!-- Tags list -->
+
 <template name="tags">
-<ul class="tags">
-	{{#each tags list}}
-	{{> tag}}
-	{{/each}}
-	{{#if new}}
-{{#if currentUser}}
-	{{> newtag}}
-{{/if}}
-	{{/if}}
-</ul>
+		{{#if new}}
+			{{#if currentUser}}
+				{{> newtag}}
+			{{/if}}
+			<ul class="tags-filter__options">
+				<li>Hide</li>
+				<li>Combinations</li>
+		        <li class="selected">Connections</li>
+		    </ul>
+		{{/if}}
+	<ul class="tag-ls">
+		{{#each tags list}}
+			{{> tag}}
+		{{/each}}
+	</ul>
 </template>
 
+<!-- Single tag -->
+
 <template name="tag">
-<li id="{{_id}}" class="tag" data-sel={{selected}} style="color: {{color}};" draggable="true">{{title}}<button class="delete">×</button></li>
+	<li id="{{_id}}" class="single-tag" data-selected={{selected}} draggable="true" >
+        <div class="single-tag__color" style="background-color: {{color}};"></div>
+        <div class="single-tag__value">{{title}}</div>
+        <button class="delete single-tag__delete">×</button>
+    </li>
 </template>
