@@ -8,8 +8,8 @@ Template.body.events({
 		var dt = event.originalEvent.dataTransfer;
 		event.preventDefault();
 	},
-	"click .tags_filter": function() {
-		$(".tags_list_filter").toggle();
+	"click .btn--tags-filter": function() {
+		$(".tags-filter").toggle();
 	},
 });
 
