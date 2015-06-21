@@ -25,7 +25,7 @@ Template.newtag.events({
 });
 Template.newtag.rendered = function(){
 	var tag = this.firstNode.color;
-	tag.style.background = tag.value = "rgb(0, 0, 0)";
+	tag.style.background = tag.value = "rgb(255, 255, 255)";
 };
 
 Template.tags.helpers({
@@ -81,13 +81,13 @@ Template.tag.events({
 			highlight[i].classList.remove('target');
 		}
 	},
-	"click .tag": function(event) {
+	"click .single-tag": function(event) {
 		Meteor.call("selectTag", this._id, !this.selected);
 		return false;
 	},
 	"click .delete": function(event) {
 		var node = event.target.parentNode.parentNode.parentNode;
-		if(node.classList[0] === "tags_list_filter")
+		if(node.classList[0] === "tags-filter")
 			Meteor.call("delTag", this._id);
 		if(node.classList[0] === "single_item")
 			Meteor.call("delTagFromBit", this._id, node.id); 
