@@ -498,6 +498,9 @@ img {
 .empty-state--column {
     margin-top: 50px;
 }
+.empty-state--tag {
+    text-align: left;
+}
 
 .text--secondary {
     color: gray;
