@@ -93,7 +93,7 @@ body {
 
 
 /*---- Header ----*/
-header {
+/*header {
     width: 100%;
     position: absolute;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26);
@@ -127,12 +127,12 @@ header {
         display: block;
         height: 30px;
         line-height: 30px;
-    }
+    }*/
 
 
 /*---- Columns ----*/
 
-.col_container{
+/*.col_container{
     width: 100%;
     background: white;
     padding-top: 100px;
@@ -151,19 +151,19 @@ header {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-    }
+    }*/
 
 
 /*---- Columns --- Forms ----*/
 
-.col .add_form {
+/*.col .add_form {
     background: #EEEEEE;
     padding: 5px 10px 10px 10px;
     overflow: auto;
 
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08), 0 2px 5px 0 rgba(0, 0, 0, 0.13);
-}
-    .add_form h2 {
+}*/
+    /*.add_form h2 {
         font-size: 1.1rem;
         text-transform: uppercase;
         color: #BDBDBD;
@@ -171,7 +171,7 @@ header {
         line-height: 30px;
         border-bottom: 1px solid #E0E0E0;
         margin-bottom: 10px;
-    }
+    }*/
     .add_form button[type='submit'] {
         background: #AED581;
         color: #33691E;
@@ -354,7 +354,7 @@ img {
     -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
-    z-index: 100;
+    z-index: 999999;
 }
 
 
@@ -473,6 +473,17 @@ img {
     height: auto;
     border: 0;
 }
+
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10px;
+}
+body {
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
 
 /* LAYOUT */
 
@@ -615,7 +626,7 @@ img {
 .header {
     width: 100%;
     position: absolute;
-    z-index: 50;
+    z-index: 1000;
 }
 
 .header h1 {
@@ -641,7 +652,11 @@ img {
     float: right;
     height: 30px;
     line-height: 30px;
+}
+
+a#login-name-link {
     color: white;
+    text-decoration: none;
 }
 
 /*.header__user:after {
@@ -672,6 +687,9 @@ img {
     -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
     border-radius: 4px;
+
+    z-index: 1000;
+    display: none;
 }
 
 .tags-filter:before {
@@ -734,6 +752,8 @@ img {
     border: 1px solid lightgray;
     border-left: 0;
 }
+
+
 
 /* Options Bar */
 
@@ -827,3 +847,128 @@ img {
     float: left;
     background: #F5F5F5;
 }
+
+/* COLUMNS */
+
+.col-container {
+    padding-top: 100px;
+    height: 100vh;
+}
+
+.col {
+    height: 100%;
+    background: #EEEEEE;
+    width: 33.3333%;
+    overflow: hidden;
+    float: left;
+}
+
+/* Add Form */
+
+.col__add-form {
+    position: relative;
+    z-index: 50;
+}
+
+/* Column Top Bar */
+
+.col__add-form__top-bar {
+    height: 35px;
+    padding: 8px 10px 0 0;
+    background: #F5F5F5;
+    border-left: 1px solid rgba(0,0,0,.12);
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+}
+/* Removes border from left column */
+
+.col:first-of-type .col__add-form__top-bar {
+    border-left: 0;
+}
+
+.col__add-form__top-bar h2 {
+    width: 100%;
+    margin-left: -90px;
+    padding-left: 170px;
+    float: left;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #9E9E9E;
+}
+
+/* Change of color for ADD button */
+.close {
+    background: #cfd7e0;
+    color: #8c959f;
+}
+.close:hover {
+    background: #d8dee5;
+}
+
+/* Form Container */
+
+.col__add-form__form {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    padding: 15px;
+    background: #FFFFFF;
+    display: none;
+
+    -webkit-box-shadow: inset 0px 138px 7px -135px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0px 138px 7px -135px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: inset 0px 138px 7px -135px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.2);
+
+    border-radius: 0px 0px 2px 2px;
+    -moz-border-radius: 0px 0px 2px 2px;
+    -webkit-border-radius: 0px 0px 2px 2px;
+    border: 0px solid #000000;
+}
+
+/* Form fields */
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea {
+    border: 1px solid #ccc;
+    background: #F5F5F5;
+}
+
+.col__add-form__form input[type='text'] {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+.col__add-form__form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+textarea:focus {
+    outline: 0;
+    border: 1px solid #90CAF9;
+}
+
+/* Column Content */
+
+.col__content {
+    /* 35px is the hight of the top bar in each column */
+    height: calc(100% - 35px);
+    overflow-y: scroll;
+    padding: 15px;
+}
+
