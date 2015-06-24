@@ -5,13 +5,15 @@
 		{{> newbit type=type}}
 		<div class="col__content">
 			{{#each bits}}
-			{{> bit}}
+				{{> bit}}
+			{{else}}
+				<span class="empty-state empty-state--column text--secondary">There are no {{type}}s to show</span>
 			{{/each}}
 		</div>
 	</div>
 </template>
 
-<!-- Column Form -->
+<!-- Add Form -->
 
 <template name="newbit">
 	{{#if currentUser}}
@@ -49,23 +51,28 @@
 
 <!-- Single Item -->
 <template name="bit">
-	<li id="{{_id}}" class="single_item {{type}}_item {{tagclass}}" draggable="true">
-		<button class="delete single-item__delete">×</button>
-		{{> Template.dynamic template=showtype}}
-		{{> tags list=taglist}}
-	</li>
+	<article id="{{_id}}" class="single-item single-item--{{type}} {{tagclass}}" draggable="true">
+		<div class="single-item__top-bar">
+            <!-- <span class="edit single-item__top-bar__edit">Edit</span> -->
+            <button class="delete single-item__top-bar__delete">×</button>
+        </div>
+        <div class="single-item__content">
+        	{{> Template.dynamic template=showtype}}
+        </div>
+		{{> tags list=taglist singleItem=true}}
+    </article>
 </template>
 
 <!-- Single Item Text -->
 <template name="showtext">
 	<p class="plain">{{text}}</p>
-	</template>
-	<!-- Single Item Image -->
-	<template name="showimage">
+</template>
+<!-- Single Item Image -->
+<template name="showimage">
 	<img alt="{{title}}" title="{{title}}" src="{{href}}">
-	</template>
-	<!-- Single Item Link -->
-	<template name="showlink">
+</template>
+<!-- Single Item Link -->
+<template name="showlink">
 	<h3><a target="_blank" href="{{href}}">{{title}}</a></h3>
 	<p>{{description}}</p>
 </template>

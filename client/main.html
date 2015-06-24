@@ -16,11 +16,13 @@
 				{{> tags new=true}}
 			</div>
 		</header>
-		<div class="col-container">
-			{{> bits type="image"}}
-			{{> bits type="text"}}
-			{{> bits type="link"}}
-		</div>
+		{{#if currentUser}}
+			<div class="col-container">
+				{{> bits type="image"}}
+				{{> bits type="text"}}
+				{{> bits type="link"}}
+			</div>
+		{{/if}}
 	</div>
 	{{> bitfilter}}
 </body>

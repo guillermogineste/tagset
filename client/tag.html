@@ -23,11 +23,13 @@
 		        <li class="selected">Connections</li>
 		    </ul>
 		{{/if}}
-	<ul class="tag-ls">
-		{{#each tags list}}
-			{{> tag}}
-		{{/each}}
-	</ul>
+		<ul class="tag-ls {{#if singleItem}}single-item--tag-ls{{/if}}">
+			{{#each tags list}}
+				{{> tag}}
+			{{else}}
+				<li class="empty-state text--secondary--small">No Tags Applied</li>
+			{{/each}}
+		</ul>
 </template>
 
 <!-- Single tag -->
