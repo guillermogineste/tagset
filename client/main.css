@@ -83,11 +83,16 @@ img {
 
 .text--secondary {
     color: #9E9E9E;
+    display: block;
+    width: 100%;
 }
 .text--secondary--small {
     font-size: 1.1rem;
-    color: #BDBDBD;
+    color: #9E9E9E;
     height: 20px;
+}
+.text--secondary--right {
+    text-align: right;
 }
 
 /* Form general styles */
@@ -300,6 +305,9 @@ a#login-name-link,
 a#login-sign-in-link {
     color: white;
     text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    font-weight: bold;
 }
 
 /*.header__user:after {
@@ -393,8 +401,6 @@ a#login-sign-in-link {
     border: 1px solid lightgray;
     border-left: 0;
 }
-
-
 
 /* Options Bar */
 
@@ -587,8 +593,6 @@ a#login-sign-in-link {
     overflow-y: scroll;
     padding: 15px;
 }
-
-
 
 .single-item {
     background: #FFFFFF;
