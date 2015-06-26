@@ -17,11 +17,7 @@
 			{{#if currentUser}}
 				{{> newtag}}
 			{{/if}}
-			<ul class="tags-filter__options">
-				<li>Hide</li>
-				<li>Combinations</li>
-		        <li class="selected">Connections</li>
-		    </ul>
+				{{> filter}}
 		{{/if}}
 		<ul class="tag-ls {{#if singleItem}}single-item--tag-ls{{/if}}">
 			{{#each tags list}}
@@ -30,6 +26,14 @@
 				<li class="empty-state empty-state--tag text--secondary--small">No Tags Assigned</li>
 			{{/each}}
 		</ul>
+</template>
+
+<template name="filter">
+<ul class="tags-filter__options">
+	<li data-operation="nor" class="{{class "nor"}}">Hide</li>
+	<li data-operation="or" class="{{class "or"}}">Combinations</li>
+	<li data-operation="and" class="{{class "and"}}">Connections</li>
+</ul>
 </template>
 
 <!-- Single tag -->

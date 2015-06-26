@@ -34,16 +34,17 @@ Template.bits.helpers({
 
 Template.bit.helpers({
 	tagclass: function() {
-		var func = {
-			and: function(a, x){ return a && x; },
-			or: function(a, x){ return a || x; },
-			nor: function(a, x){ return a && !x; },
+		var op = {
+			and: {start: true, func: function(a, x){ return a && x; }},
+			or: {start: false, func: function(a, x){ return a || x; }},
+			nor: {start: true, func: function(a, x){ return a && !x; }},
+			nand: {start: false, func: function(a, x){ return a || !x; }},
 		}[Session.get('filter_operation')];
 		var filter = Session.get('filter');
-		var show = true;
+		var show = op.start;
 		for(t in filter){
 			if(filter[t])
-				show = func(show, this.tags[t] == true);
+				show = op.func(show, this.tags[t] == true);
 		}
 		return show ? 'bit' : 'bit hidden';
 	},
