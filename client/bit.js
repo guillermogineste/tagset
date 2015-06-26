@@ -34,11 +34,18 @@ Template.bits.helpers({
 
 Template.bit.helpers({
 	tagclass: function() {
-		var classes = "bit";
-		for(t in this.tags){
-			classes += ' t' + t;
+		var func = {
+			and: function(a, x){ return a && x; },
+			or: function(a, x){ return a || x; },
+			nor: function(a, x){ return a && !x; },
+		}[Session.get('filter_operation')];
+		var filter = Session.get('filter');
+		var show = true;
+		for(t in filter){
+			if(filter[t])
+				show = func(show, this.tags[t] == true);
 		}
-		return classes;
+		return show ? 'bit' : 'bit hidden';
 	},
 	taglist: function() {
 		var list = [];
