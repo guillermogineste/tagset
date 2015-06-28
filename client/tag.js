@@ -16,10 +16,10 @@ Template.newtag.events({
 			target.value = color;
 			colors.parentNode.removeChild(colors);
 		});
-		colors.style.position = "absolute";
+		// colors.style.position = "absolute";
 		event.target.parentNode.appendChild(colors);
-		colors.style.top = (target.offsetTop + target.offsetHeight/2 - colors.offsetHeight/2 ) + "px";
-		colors.style.left = (target.offsetLeft + target.offsetWidth/2 - colors.offsetWidth/2) + "px";
+		// colors.style.top = (target.offsetTop + target.offsetHeight/2 - colors.offsetHeight/2 ) + "px";
+		// colors.style.left = (target.offsetLeft + target.offsetWidth/2 - colors.offsetWidth/2) + "px";
 		return false;
 	},
 });

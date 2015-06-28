@@ -673,3 +673,11 @@ a#login-sign-in-link {
     font-weight: bold;
     font-size: 1.15rem;
 }
+
+
+.hilbertcolor {
+    position: absolute;
+    z-index: 99999;
+    left: 164px;
+    top: 15px;
+}
