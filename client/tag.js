@@ -39,23 +39,24 @@ Template.tags.helpers({
 });
 
 Template.tag.helpers({
+	isselected: function(){
+		return Session.get('filter')[this._id] == true ? ' selected' : '';
+	},
 });
 
-(function(){
-	var tags = Tags.find();
-	function updateFilter(){
-		var rule = document.getElementById("bitfilter").sheet.cssRules[0];
-		rule.selectorText = tags.fetch().filter(function(tag){
-			return tag.selected;
-		}).reduce(function(a, tag){
-			return a + '.t' + tag._id;
-		}, '.bit');
-	}
-	tags.observeChanges({
-		changed: updateFilter,
-		deleted: updateFilter,
-	});
-})()
+Session.setDefault("filter_operation", "and");
+Session.setDefault("filter", {});
+
+Template.filter.helpers({
+	class: function(op){
+		return Session.get("filter_operation") == op ? 'selected' : '';
+	},
+});
+Template.filter.events({
+	"click li": function(event){
+		Session.set("filter_operation", event.target.dataset.operation);
+	},
+});
 
 Template.tag.events({
 	"dragstart": function(event) {
@@ -82,7 +83,9 @@ Template.tag.events({
 		}
 	},
 	"click .single-tag": function(event) {
-		Meteor.call("selectTag", this._id, !this.selected);
+		var filter = Session.get('filter');
+		filter[this._id] = !filter[this._id];
+		Session.set('filter', filter);
 		return false;
 	},
 	"click .delete": function(event) {
